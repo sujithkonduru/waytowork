@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Client Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .container {
+      width: 800px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .worker-card {
+      background: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .worker-card h4 {
+      margin: 0;
+      color: #333;
+    }
+
+    .worker-card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .worker-card button {
+      background-color: #007bff;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .worker-card button:hover {
+      background-color: #0056b3;
+    }
+
+    #logoutBtn {
+      background-color: #dc3545;
+      margin-top: 20px;
+    }
+
+    #logoutBtn:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Welcome to Client Dashboard</h2>
+  <p>Available Workers:</p>
+
+  <div id="workers-list"></div>
+
+  <button id="logoutBtn">Logout</button>
+</div>
+
+<script>
+  const workersList = document.getElementById('workers-list');
+
+  fetch('/workers/available')
+    .then(response => {
+      if (!response.ok) throw new Error("Failed to fetch workers");
+      return response.json();
+    })
+    .then(data => {
+      if (data.length === 0) {
+        workersList.innerHTML = "<p>No active workers available.</p>";
+      } else {
+        data.forEach(worker => {
+          const card = document.createElement('div');
+          card.className = 'worker-card';
+          card.innerHTML = `
+            <h4>${worker.firstName} ${worker.lastName}</h4>
+            <p><strong>Skill:</strong> ${worker.skills}</p>
+            <p><strong>Wage:</strong> ₹${worker.wage}/day</p>
+            <p><strong>Phone:</strong> ${worker.phone}</p>
+            <p><strong>Location:</strong> ${worker.address}</p>
+            <button onclick="bookWorker(${worker.id}, '${worker.firstName} ${worker.lastName}', '${worker.skills}')">
+              Book
+            </button>
+          `;
+          workersList.appendChild(card);
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      workersList.innerHTML = "<p>Error loading workers.</p>";
+    });
+
+  function bookWorker(workerId, name, skill) {
+    const selectedWorker = {
+      workerId: workerId,
+      workerName: name,
+      serviceType: skill
+    };
+    localStorage.setItem("selectedWorker", JSON.stringify(selectedWorker));
+    window.location.href = "/api/bookings/book-worker";
+  }
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    window.location.href = '/logout';
+  });
+</script>
+
+</body>
+</html>
