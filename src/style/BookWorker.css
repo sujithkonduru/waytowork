@@ -1,0 +1,100 @@
+/* Container holding the whole booking section */
+.booking-form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.7s ease-in-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading style */
+.booking-form-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+/* Each form field group */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #34495e;
+}
+
+/* Input and textarea fields */
+.form-group input,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Textarea field */
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Required asterisk */
+.required span {
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .booking-form-container {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

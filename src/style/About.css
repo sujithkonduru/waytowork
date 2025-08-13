@@ -1,0 +1,208 @@
+/* Root Container */
+.about-container {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom right, rgba(10, 10, 30, 0.9), rgba(20, 20, 40, 0.95)),
+              url('../style/hero.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #cdefff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Headings */
+.about-main h1,
+.about-main h2,
+.about-main h3,
+.typing-text,
+.about-values h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #6bc0f8;
+}
+
+/* Typing Title */
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #00bfff;
+  font-size: 3rem;
+  animation: typing 3s steps(30, end), blink-caret 0.6s step-end infinite;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #f9fcfd; }
+}
+
+/* Main Wrapper */
+.about-main {
+  max-width: 1000px;
+  margin: auto;
+  background: rgba(15, 15, 30, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+  animation: fadeInMain 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInMain {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-subtitle {
+  font-size: 1.3rem;
+  color: #e1f7ff;
+  font-style: italic;
+  margin-top: 12px;
+  text-shadow: 0 1px rgba(0, 255, 255, 0.5);
+}
+
+/* Capsule Image Styling */
+.about-hero img {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2);
+  margin: 20px 0;
+}
+
+/* Paragraph Text */
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  text-align: justify;
+  color: #a9d7ff;
+}
+
+/* Core Values */
+.about-values {
+  margin-top: 50px;
+}
+
+.about-values h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #03779e;
+  margin-bottom: 25px;
+}
+
+.about-values h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #f6f7f8;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.about-values ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.about-values li {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+  padding: 16px 20px;
+  background: rgba(153, 186, 238, 0.952);
+  border-left: 6px solid #0ff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(133, 255, 255, 0.925);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.about-values li:hover {
+  background: rgba(43, 133, 250, 0.767);
+  transform: translateX(8px);
+}
+
+/* Section Wrappers */
+.about-role-section,
+.about-services,
+.about-testimonials {
+  margin: 50px 0;
+  padding: 30px;
+  background-color: rgba(130, 173, 248, 0.534);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(253, 229, 229, 0.5);
+}
+
+/* Testimonials */
+.testimonial {
+  background-color: rgba(50, 70, 90, 0.95);
+  border-left: 5px solid #4caf50;
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+}
+
+.testimonial span {
+  display: block;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 8px;
+}
+
+/* Animation Classes */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-main {
+    padding: 20px;
+  }
+
+  .typing-text {
+    font-size: 2rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-values li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-hero img {
+    width: 100%;
+    border-radius: 30px;
+  }
+}

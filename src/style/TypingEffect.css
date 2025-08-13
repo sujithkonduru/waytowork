@@ -1,0 +1,7 @@
+/* TypingEffect.css */
+.typing-effect {
+  font-size: 1.5rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  color: #333;
+}

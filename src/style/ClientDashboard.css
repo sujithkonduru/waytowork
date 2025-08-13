@@ -1,0 +1,223 @@
+.client-dashboard {
+  padding: 40px 60px;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #dff5f8, #f0fff0);
+  color: #2d2d2d;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-in;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Headings */
+h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  padding-left: 10px;
+  font-weight: 600;
+  animation: slideLeft 1s ease-in;
+  padding-left: 15px;
+  font-size: 22px;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Filter bar styling */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.filter-bar input,
+.filter-bar select,
+.filter-bar button {
+  padding: 10px 14px;
+  border: 1px solid #b3d6e4;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #ffffffee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.filter-bar button {
+  background-color: #3498dbbb;
+  color: white;
+  cursor: pointer;
+  border: none;
+  width: 130px;
+  font-weight: 500;
+}
+
+.filter-bar button:hover {
+  background-color: #217dbb;
+  transform: scale(1.05);
+}
+
+/* Worker List */
+.worker-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.worker-card {
+  background-color: #ffffffcc;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  padding: 22px;
+  animation: fadeInUp 0.6s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.worker-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.worker-card h4 {
+  margin-bottom: 10px;
+  color: #2d3e50;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.worker-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.worker-card button {
+  margin-top: 12px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.worker-card button:hover {
+  background-color: #27ae60;
+}
+
+/* Booking List */
+.booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.booking-card {
+  background: rgba(159, 213, 248, 0.445);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 24px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.5s ease;
+  transition: transform 0.3s ease;
+}
+
+.booking-card:hover {
+  transform: scale(1.01);
+}
+
+.booking-card p {
+  margin: 8px 0;
+  color: #34495e;
+  font-size: 15px;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 12px;
+  width: 180px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Feedback Form */
+.feedback-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.feedback-form input[type="number"],
+.feedback-form input[type="text"] {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #fefefe;
+  transition: box-shadow 0.3s;
+}
+
+.feedback-form input:focus {
+  box-shadow: 0 0 8px #3498db;
+}
+
+.feedback-form button {
+  padding: 10px 18px;
+  background-color: #f39c12e3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+  width: 220px;
+}
+
+.feedback-form button:hover {
+  background-color: #e67e22;
+}

@@ -1,0 +1,162 @@
+/* Container with animated space background */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Starfield animation */
+.register-container::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  
+  animation: animateStars 200s linear infinite;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+@keyframes animateStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-1000px, 1000px); }
+}
+
+/* Orbiting planet (you can add more if needed) */
+.planet {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ffcc00 0%, #ff9900 100%);
+  border-radius: 50%;
+  animation: orbit 20s linear infinite;
+  z-index: 1;
+  top: 10%;
+  left: 10%;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+  }
+}
+
+/* Register card with glassmorphism */
+.register-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+  padding: 40px 30px;
+  max-width: 420px;
+  width: 100%;
+  color: #ffffff;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Heading */
+.register-heading {
+  text-align: center;
+  font-size: 28px;
+  color: #c9faff;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Form layout */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.form-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.form-control:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid #00f0ff;
+}
+
+/* Submit button */
+.register-btn {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(to right, #00ffe5, #008cff);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #00bfa5, #0062ff);
+}
+
+/* Link to login */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #00f5ff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+  .register-card {
+    padding: 30px 20px;
+  }
+
+  .register-heading {
+    font-size: 22px;
+  }
+}
